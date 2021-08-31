@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="htt://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>listofuser</title>
+  <link rel="stylesheet" href="CSS/table.css">
+  <link rel="stylesheet" href="CSS/Navbar.css">
+</head>
+<body>
+<table id="customers" th:action="@{/customers}" th:object="${customers}" method="post">
+  <div class="nav">
+    <nav>
+      <ul>
+        <li> <a th:href="@{/addMovie}">Add Movie</a></li>
+        <li> <a th:href="@{/allMovies}">Movies list</a></li>
+        <li> <a th:href="@{/customers}">Customers List</a></li>
+        <li> <a th:href="@{/allBookings}">Booking Details</a></li>
+        <li> <a th:href="@{/addHall}">Add Halls</a></li>
+        <li> <a th:href="@{/allHall}">List of Halls</a></li>
+        <li> <a th:href="@{/logout}"> log out</a></li>
+      </ul>
+    </nav>
+  </div>
+  <tr>
+    <th>FirstName</th>
+    <th>MiddleName</th>
+    <th>LastName</th>
+    <th>email</th>
+    <th>phoneNumber</th>
+    <th>actions</th>
+  </tr>
+  <tr th:each="customer:${customers}">
+    <td th:text="${customer.firstName}"></td>
+    <td th:text="${customer.middleName}"></td>
+    <td th:text="${customer.lastName}"></td>
+    <td th:text="${customer.email}"></td>
+    <td th:text="${customer.phoneNumber}"></td>
+    <td> <a th:href="@{/delete}">delete</a>
+      <a th:href="@{/updateMovie}">update</a>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

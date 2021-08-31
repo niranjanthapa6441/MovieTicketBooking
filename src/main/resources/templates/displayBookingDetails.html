@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="htt://www.thymeleaf.org">
+<head>
+    <title>Booking Details</title>
+    <link rel="stylesheet" href="CSS/Navbar.css">
+    <link rel="stylesheet" href="CSS/Table.css">
+</head>
+<body>
+<div class="nav">
+    <nav>
+        <ul>
+            <li> <a th:href="@{/addMovie}">Add Movie</a></li>
+            <li> <a th:href="@{/allMovies}">Movies list</a></li>
+            <li> <a th:href="@{/customers}">Customers List</a></li>
+            <li> <a th:href="@{/allBookings}">Booking Details</a></li>
+            <li> <a th:href="@{/addHall}">Add Halls</a></li>
+            <li> <a th:href="@{/allHall}">List of Halls</a></li>
+            <li> <a th:href="@{/logout}"> log out</a></li>
+        </ul>
+    </nav>
+</div>
+<table id="customers" th:action="@{/allBookings}" th:object="${bookings}" method="post">
+    <tr>
+        <th>MovieName</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>NumberOfPersons</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="booking:${bookings}">
+        <td th:text="${booking.movieName}"></td>
+        <td th:text="${booking.date}"></td>
+        <td th:text="${booking.time}"></td>
+        <td th:text="${booking.numberOfPersons}"></td>
+        <td> <a href="">delete</a>
+            <a href="">update</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

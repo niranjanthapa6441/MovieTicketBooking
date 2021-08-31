@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Movie</title>
+    <link  rel="stylesheet" href="CSS/Form.css">
+    <link rel="stylesheet" href="CSS/Navbar.css">
+</head>
+<body>
+<div class="nav">
+    <nav>
+        <ul>
+            <li> <a th:href="@{/addMovie}">Add Movie</a></li>
+            <li> <a th:href="@{/allMovies}">Movies list</a></li>
+            <li> <a th:href="@{/customers}">Customers List</a></li>
+            <li> <a th:href="@{/allBookings}">Booking Details</a></li>
+            <li> <a th:href="@{/addHall}">Add Halls</a></li>
+            <li> <a th:href="@{/allHall}">List of Halls</a></li>
+            <li> <a th:href="@{/logout}"> log out</a></li>
+        </ul>
+    </nav>
+</div>
+<div class="form">
+    <form action="#" th:action="@{/delete}"  method="POST" enctype="utf8">
+        <h2> Delete Movie </h2>
+        <div class="inputBox">
+            <input type="text" name="movieName" placeholder="MovieName" id="MovieName" required>
+        </div>
+        <label for="genres" >Genre:</label>
+        <select name="genres" id="genres">
+            <option value="Action">Action</option>
+            <option value="ROMCOM">ROMCOM</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="SCi-Fi">Sci-fi</option>
+            <option value="Drama">Drama</option>
+            <option value="Thriller">Thriller</option>
+        </select><br>
+        <div class="inputBox">
+            <input type="text" name="releaseDate" id="releaseDate" required>
+        </div>
+        <div class="inputBox">
+            <input type="file" name="uploadFile" value=" " id="Image" >
+        </div>
+        <label>Category</label>
+        <input type="radio" name="Category" value="Releasing Soon" id="releasingSoon" required>
+        <label>ReleasingSoon</label>
+        <input type="radio"  name="Category" value="released" id="released" required>
+        <label>released</label><br>
+        <div class="inputBox">
+            <a href=""><button type="submit">Delete Movie</button></a>
+        </div>
+    </form>
+</div>
+</body>
+</html>

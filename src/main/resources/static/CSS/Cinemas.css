@@ -1,0 +1,36 @@
+
+    #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    #customers tr{
+        height:50%;
+        width:50%;
+    }
+    #customers td,
+    #customers tr {
+        padding-top: 12px;
+        padding-bottom:12px;
+    }
+    #customers #content:hover {
+        background-color: #ddd;
+    }
+
+    #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        padding-left:10px;
+        text-align: left;
+        background-color: #4CAF50;
+        color: white;
+    }
+    #customers td a{
+        color: black;
+    }
+    #customers td img{
+            width:40%;
+            height:40%;
+            background-size:100% 100%;
+            align-img:center;
+        }

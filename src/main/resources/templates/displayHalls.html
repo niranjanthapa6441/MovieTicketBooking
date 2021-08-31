@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="htt://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All Halls</title>
+    <link rel="stylesheet" href="CSS/table.css">
+    <link rel="stylesheet" href="CSS/Navbar.css">
+</head>
+<div class="nav">
+    <nav>
+        <ul>
+            <li><a th:href="@{/addMovie}">Add Movie</a></li>
+            <li><a th:href="@{/allMovies}">Movies list</a></li>
+            <li><a th:href="@{/customers}">Customers List</a></li>
+            <li><a th:href="@{/allBookings}">Booking Details</a></li>
+            <li><a th:href="@{/addHall}">Add Halls</a></li>
+            <li><a th:href="@{/allHall}">List of Halls</a></li>
+            <li><a th:href="@{/logout}"> log out</a></li>
+        </ul>
+    </nav>
+</div>
+<div>
+    <table id="customers" th:action="@{/allHall}" th:object="${halls}" method="POST">
+        <thead class="thead-dark">
+            <tr>
+                <th>Hall Name</th>
+                <th>Location</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tr th:each="hall:${halls}">
+            <td th:text="${hall.name}"></td>
+            <td th:text="${hall.location}"></td>
+            <td th:text="${hall.email}"></td>
+            <td th:text="${hall.phoneNUmber}"></td>
+            <td> <a th:href="@{'/deleteHall/'+${hall.hallID}}">Delete</a>
+                <a th:href="@{'/updateHall/'+${hall.hallID}}">Update</a>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>[[${pageTitle}]]</title>
+  <link rel="stylesheet" href="CSS/Form.css">
+  <link rel="stylesheet" href="CSS/Navbar.css">
+</head>
+<body>
+<div class="nav">
+  <nav>
+    <ul>
+      <li> <a th:href="@{/addMovie}">Add Movie</a></li>
+      <li> <a th:href="@{/allMovies}">Movies list</a></li>
+      <li> <a th:href="@{/customers}">Customers List</a></li>
+      <li> <a th:href="@{/allBookings}">Booking Details</a></li>
+      <li> <a th:href="@{/addHall}">Add Halls</a></li>
+      <li> <a th:href="@{/allHall}">List of Halls</a></li>
+      <li> <a th:href="@{/logout}"> log out</a></li>
+    </ul>
+  </nav>
+</div>
+<div class="form">
+  <form action="#" th:action="@{/addHall}" th:object="${halls}"  method="post" enctype="multipart/form-data">
+    <h2>Add New Hall</h2>
+    <input type="hidden" th:field="*{hallID}">
+    <div class="inputBox">
+      <input type="text" th:field="*{name}"  placeholder="Hall Name" required>
+    </div>
+    <div class="inputBox">
+      <input type="file" placeholder="Image" name="imageFile" id="imageFile" accept="image/jpeg,image/jpg,image/png">
+    </div>
+    <div class="inputBox">
+      <input type="text" th:field="*{location}" placeholder="Location" required>
+    </div>
+    <div class="inputBox">
+      <input type="email" th:field="*{email}"  placeholder="email" required>
+    </div>
+    <div class="inputBox">
+      <input type="text" th:field="*{phoneNUmber}" placeholder="Phone Number" required><br>
+    </div>
+    <div class="inputBox">
+      <a href="@{/allHall}"><button type="submit">Add Hall</button></a>
+    </div>
+  </form>
+</div>
+
+</body>
+</html>

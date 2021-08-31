@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Tickets</title>
+    <link rel="stylesheet" href="CSS/Form.css">
+</head>
+<body>
+<div class="form">
+    <form action="#" th:action="@{/booking}" th:object="${bookings}" method="POST" enctype="utf8">
+        <h2>Book Tickets</h2>
+        <div class="inputBox">
+            <input type="text" placeholder="MovieName" th:field="*{movieName}" required>
+        </div>
+        <div class="inputBox">
+            <input type="text" th:field="*{date}" placeholder="dd/mm/yy" required>
+        </div>
+        <div class="inputBox">
+            <input type="text" th:field="*{time}" placeholder="Time" required>
+        </div>
+        <div class="inputBox">
+            <input type="text" th:field="*{numberOfPersons}" placeholder="No of Persons" required>
+        </div>
+        <div class="inputBox">
+            <input type="text" th:field="*{seatNumber}" placeholder="SeatNumbers" required>
+        </div>
+        <div class="inputBox">
+            <input type="text" th:field="*{hall}" placeholder="hall" required>
+        </div>
+        <div class="inputBox">
+            <input type="text" th:field="*{auditorium}" placeholder="Auditorium" required>
+        </div>
+        <div class="inputBox">
+            <a href="displayBookingDetails.html"><button type="submit">Confirm Booking</button></a>
+        </div>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cine Magic -Register</title>
+    <link rel="stylesheet" href="CSS/Form.css">
+</head>
+<body>
+<div class="Registration">
+    <div class="form">
+        <form action="#" th:action="@{/Register}" th:object="${customerAdded}" method="POST" enctype="utf8">
+            <h2> Registration Form </h2>
+            <div class="inputBox">
+                <input type="text" th:field="*{firstName}" placeholder="First Name" id="FirstName" required>
+            </div>
+            <div class="inputBox">
+                <input type="text" th:field="*{middleName}" placeholder="Middle Name" id="MiddleName">
+            </div>
+            <div class="inputBox">
+                <input type="text" th:field="*{lastName}" placeholder="Last Name" id="LastName" required>
+            </div>
+            <div class="inputBox">
+                <input type="email" th:field="*{email}" placeholder="Email" id="Email" required>
+            </div>
+            <div class="inputBox">
+                <input type="text" th:field="*{phoneNumber}" placeholder="Phone No" id="phoneNumber" required>
+            </div>
+            <div class="inputBox">
+                <input type="text" th:field="*{username}" placeholder="UserName" id="UserName" required>
+            </div>
+            <div class="inputBox">
+                <input type="password" th:field="*{password}" placeholder="Password" id="password" required>
+            </div>
+            <div class="inputBox">
+                <input type="password" th:field="*{confirmPassword}"placeholder="Confirm Password" id="confirmPassword" required>
+            </div>
+            <input type="checkbox" id="TermsandCondition" required>
+            <label>By clicking this you agrre to our<a href="">Terms & Conditions</a>and
+                <a href="">Privacy Policy</a>.</label>
+            <button type="submit">Register</button>
+            <br>
+            <div class="already">
+                <h4>Already have an Account?<a th:href="@{/login}">Log in</a></h4>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

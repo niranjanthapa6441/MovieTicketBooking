@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cinemas</title>
+    <link rel="stylesheet" href="CSS/Navbar.css">
+    <link rel="stylesheet" href="CSS/Cinemas.css">
+</head>
+<body>
+<div class="overlay">
+    <div class="navbar">
+        <nav>
+            <ul>
+                <li><a th:href="@{/}">Home</a></li>
+                <li><a th:href="@{/cinemas}">Cinemas</a></li>
+                <li><a th:href="Contact.html">Contact</a></li>
+                <li><a th:href="@{/booking}">Booking</a></li>
+                <li><a th:href="@{/Register}">Registration</a></li>
+                <li><a th:href="@{/login}">Login</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<table id="customers" th:action="@{/cinemas}" th:object="${cinema}" method="POST">
+    <tr th:each="cinemas:${cinema}">
+        <td id="content">
+            <h2 th:text="${cinemas.name}"></h2>
+            <h4 th:text="${cinemas.location}"></h4>
+            <h4 th:text="${cinemas.phoneNUmber}"></h4>
+            <h4 th:text="${cinemas.email}"></h4>
+        </td>
+        <td>
+            <img th:src="${cinemas.imagePath}">
+        </td>
+    </tr>
+</table>
+</body>
+</html>

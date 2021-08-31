@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="htt://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>listofuser</title>
+    <link rel="stylesheet" href="CSS/table.css">
+    <link rel="stylesheet" href="CSS/Navbar.css">
+</head>
+<body>
+<div class="nav">
+    <nav>
+        <ul>
+            <li> <a th:href="@{/addMovie}">Add Movie</a></li>
+            <li> <a th:href="@{/allMovies}">Movies list</a></li>
+            <li> <a th:href="@{/customers}">Customers List</a></li>
+            <li> <a th:href="@{/allBookings}">Booking Details</a></li>
+            <li> <a th:href="@{/addHall}">Add Halls</a></li>
+            <li> <a th:href="@{/allHall}">List of Halls</a></li>
+            <li> <a th:href="@{/logout}"> log out</a></li>
+        </ul>
+    </nav>
+</div>
+<table id="customers" th:action="@{/allMovies}" th:object="${movies}" method="POST">
+    <tr>
+        <th>MovieName</th>
+        <th>Genre</th>
+        <th>Category</th>
+        <th>ReleasedDate</th>
+        <th>MovieImage</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="movie:${movies}">
+        <td th:text="${movie.movieName}"></td>
+        <td th:text="${movie.genre}"></td>
+        <td th:text="${movie.category}"></td>
+        <td th:text="${movie.releasedDate}"></td>
+        <td><img th:src="${movie.pathName}"></td>
+        <td> <a th:href="@{'/delete/'+${movie.movieID}}">Delete</a>
+            <a th:href="@{'/update/'+${movie.movieID}}">Update</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

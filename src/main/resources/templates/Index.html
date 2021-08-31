@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <title>Cine Magic </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="CSS/homeStyle.css">
+</head>
+
+<body>
+<section class="banner">
+    <div class="slider">
+        <img src="image/index.jpg" id="slideImg">
+    </div>
+    <div class="overlay">
+        <div class="navbar">
+            <nav>
+                <ul>
+                    <li><a th:href="@{/}">Home</a></li>
+                    <li><a th:href="@{/cinemas}">Cinemas</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                    <li><a th:href="@{/booking}">Booking</a></li>
+                    <li><a th:href="@{/Register}">Registration</a></li>
+                    <li><a th:href="@{/login}">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="content">
+            <h1>Welcome to CineMagic</h1>
+            <h3>The movies available are shown below!!!!
+            </h3>
+            <div class="div">
+                <a href="blogs.html">
+                    <button type="button">EXPLORE&#8594;</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <th:block th:action="@{/}" th:object="${movies}" method="POST">
+        <h3>Now Showing</h3>
+        <div class="smallContainer">
+            <div class="row" th:each="movie:${movies}" th:switch="${movie.category}" th:Case="'released'">
+                <div class="col4">
+                    <img th:src="${movie.pathName}" alt="">
+                    <h4 th:text="${movie.movieName}"></h4>
+                </div>
+            </div>
+        </div>
+    </th:block>
+</section>
+<section>
+    <th:block th:action="@{/}" th:object="${movies}" method="POST">
+        <h3>Releasing Soon</h3>
+        <div class="smallContainer">
+            <div class="row" th:each="movie:${movies}" th:switch="${movie.category}" th:Case="'Releasing Soon'">
+                <div class="col4">
+                    <img th:src="${movie.pathName}" alt="">
+                    <h4 th:text="${movie.movieName}"></h4>
+                </div>
+            </div>
+        </div>
+    </th:block>
+</section>
+</body>
+
+</html>

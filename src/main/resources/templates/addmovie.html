@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{CSS/Form.css}">
+    <link rel="stylesheet"  th:href="@{CSS/Navbar.css}">
+    <title>[[${pageTitle}]]</title>
+</head>
+<body>
+<div class="nav">
+    <nav>
+        <ul>
+            <li> <a th:href="@{/addMovie}">Add Movie</a></li>
+            <li> <a th:href="@{/allMovies}">Movies list</a></li>
+            <li> <a th:href="@{/customers}">Customers List</a></li>
+            <li> <a th:href="@{/allBookings}">Booking Details</a></li>
+            <li> <a th:href="@{/addHall}">Add Halls</a></li>
+            <li> <a th:href="@{/allHall}">List of Halls</a></li>
+            <li> <a th:href="@{/logout}"> log out</a></li>
+        </ul>
+    </nav>
+</div>
+<div class="form">
+    <form th:action="@{/addMovie}" th:object="${movies}" method="POST" enctype="multipart/form-data">
+        <h2>[[${pageTitle}]]</h2>
+        <input type="hidden" th:field="*{movieID}">
+        <div class="inputBox">
+            <input type="text" placeholder="MovieName" id="MovieName" th:field="*{movieName}" required>
+        </div>
+            <label>Released Date</label>
+            <input type="Date" th:field="*{releasedDate}"name="releaseDate" id="releaseDate" required>
+        <div class="inputBox">
+        </div>
+        <div class="inputBox">
+            <input type="file" name="imageFile"  id="imageFile" accept="image/jpeg,image/jpg,image/png" required>
+        </div>
+        <label>Category</label>
+        <input type="radio" th:field="*{category}" name="Category" value="Releasing Soon" id="releasingSoon" required>
+        <label>ReleasingSoon</label>
+        <input type="radio" th:field="*{category}" name="Category" value="released" id="released" required>
+        <label>released</label><br>
+        <label for="genres" >Genre:</label>
+        <select name="genres" th:field="*{genre}"id="genres">
+            <option value="Action">Action</option>
+            <option value="ROMCOM">ROMCOM</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="SCi-Fi">Sci-fi</option>
+            <option value="Drama">Drama</option>
+            <option value="Thriller">Thriller</option>
+        </select><br>
+        <div class="inputBox">
+            <a th:href="@{/allMovies}"><button type="submit">[[${button}]]</button></a>
+        </div>
+
+    </form>
+</div>
+</body>
+</html>
