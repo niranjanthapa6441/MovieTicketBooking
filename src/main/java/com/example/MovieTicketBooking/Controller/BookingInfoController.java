@@ -2,12 +2,11 @@ package com.example.MovieTicketBooking.Controller;
 
 import com.example.MovieTicketBooking.Model.Booking;
 import com.example.MovieTicketBooking.Service.BookingService;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping()
@@ -24,9 +23,4 @@ public class BookingInfoController {
         model.addAttribute("bookings",bookingService.getALlBookings());
         return "BookingInfo";
     }
-    @PostMapping("/bookingInfo")
-    public String getCheckOut(Model model){
-        return "payme";
-    }
-
 }

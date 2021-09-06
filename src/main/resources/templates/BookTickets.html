@@ -10,14 +10,19 @@
     <form id="payment-form" action="#" th:action="@{/booking}" th:object="${bookings}" method="POST" enctype="utf8">
         <h2>Book Tickets</h2>
         <input type="hidden" name="id" th:field="*{bookingID}">
-        <div class="inputBox">
-            <input type="text" placeholder="MovieName" th:field="*{movieName}" required>
-        </div>
+        <label class="custom-select" for="movieName" >
+            <select name="movieName" th:field="*{movieName}"id="movieName" required>
+                <option value="House Of Gucci">House Of Gucci</option>
+                <option value="No Time To Die">No Time To Die</option>
+                <option value="Interstellar">Interstellar</option>
+                <option value="Kabbadi Kabbadi">Kabaddi Kabbadi</option>
+            </select>
+        </label>
         <div class="inputBox">
             <input type="date" th:field="*{date}" placeholder="dd/mm/yy" required>
         </div>
         <label class='custom-select' for="times" >
-            <select name="time" th:field="*{time}"id="times">
+            <select name="time" th:field="*{time}"id="times" required>
                 <option value="13:00-15:00">13:00-15:00</option>
                 <option value="11:00-13:00">11:00-13:00</option>
                 <option value="09:00-11:00">09:00-11:00</option>
@@ -31,7 +36,7 @@
         <div class="inputBox">
             <input type="text" th:field="*{seatNumber}" placeholder="SeatNumbers" required>
         </div>
-            <label class='custom-select' for="Halls" >
+            <label class='custom-select' for="Halls" required>
                 <select name="hall" th:field="*{hall}"id="halls">
                     <option value="Civil Mall">Civil Mall</option>
                     <option value="City Centre">City Centre</option>
@@ -40,7 +45,7 @@
                 </select>
             </label>
         <label class="custom-select" for="auditorium" >
-            <select name="auditorium" th:field="*{auditorium}"id="auditorium">
+            <select name="auditorium" th:field="*{auditorium}"id="auditorium" required>
                 <option value="1">Auditorium 1</option>
                 <option value="2">Auditorium 2</option>
                 <option value="3">Auditorium 3</option>
