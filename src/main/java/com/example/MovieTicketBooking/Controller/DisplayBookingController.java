@@ -1,22 +1,31 @@
 package com.example.MovieTicketBooking.Controller;
-
-import com.example.MovieTicketBooking.Service.BookingService;
+import com.example.MovieTicketBooking.Model.Booking;
+import com.example.MovieTicketBooking.Model.BookingSearchCO;
+import com.example.MovieTicketBooking.Service.DisplayBookingService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/allBookings")
+@RequestMapping("/showALlBookings")
 public class DisplayBookingController {
-    private final BookingService bookingService;
+    private final DisplayBookingService displayBookingService;
 
-    public DisplayBookingController(BookingService bookingService) {
-        this.bookingService = bookingService;
+    public DisplayBookingController(DisplayBookingService displayBookingService) {
+        this.displayBookingService = displayBookingService;
     }
     @GetMapping
-    private String getAllBookings(Model mOdel){
-        mOdel.addAttribute("bookings",bookingService.getALlBookings());
+    public String displayALlBookings(Model model){
+        Booking booking= new Booking();
+        model.addAttribute("bookings",displayBookingService.getALlBookings());
         return "displayBookingDetails";
+    }
+    @PostMapping
+    public ResponseEntity articles(
+            BookingSearchCO searchCO){
+        return displayBookingService.getPaginatedStudents(searchCO);
     }
 }

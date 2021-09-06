@@ -4,7 +4,7 @@ import com.example.MovieTicketBooking.CustomExceptions.MovieNotFoundException;
 import com.example.MovieTicketBooking.Model.AddMovies;
 import com.example.MovieTicketBooking.Repository.AddMovieRepository;
 import jdk.jshell.spi.ExecutionControl;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
+//import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;

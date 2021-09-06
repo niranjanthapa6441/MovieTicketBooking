@@ -1,14 +1,10 @@
 package com.example.MovieTicketBooking.Controller;
 
-import com.example.MovieTicketBooking.Model.AddMovies;
 import com.example.MovieTicketBooking.Model.Booking;
 import com.example.MovieTicketBooking.Service.BookingService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/booking")
@@ -25,9 +21,13 @@ public class BookngController {
         return "BookTickets";
     }
     @PostMapping
-    public String addBooking(@ModelAttribute Booking bookings, Model model) {
+    public String submitForm(@ModelAttribute("bookings") Booking bookings) {
+        int ticketPrice=350;
+        bookings.setTicketPrice(ticketPrice);
+        bookings.setPayment("unpaid");
+        int totalTicketPrice= bookings.getTicketPrice() * bookings.getNumberOfPersons();
+        bookings.setTotalTicketPrice(totalTicketPrice);
         bookingService.saveBooking(bookings);
-        model.addAttribute("bookings",bookings);
-        return "displayBookingDetails";
+        return "BookingInfo";
     }
 }

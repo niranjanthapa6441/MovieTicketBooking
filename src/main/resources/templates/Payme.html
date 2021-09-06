@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Options</title>
+</head>
+<body>
+<form th:action="@{/payment}" method="post">
+  <input type="radio"  name="paymentOption" value="online" required>
+  <label>Online Payment</label>
+  <input type="radio"  name="paymentOption" value="offline" equired>
+  <label>Offline Payment</label><br>
+  <button>Confirm</button>
+</form>
+</body>
+</html>

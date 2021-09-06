@@ -3,35 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <title>Book Tickets</title>
-    <link rel="stylesheet" href="CSS/Form.css">
+    <link rel="stylesheet" href="CSS/global.css">
 </head>
 <body>
 <div class="form">
-    <form action="#" th:action="@{/booking}" th:object="${bookings}" method="POST" enctype="utf8">
+    <form id="payment-form" action="#" th:action="@{/booking}" th:object="${bookings}" method="POST" enctype="utf8">
         <h2>Book Tickets</h2>
+        <input type="hidden" name="id" th:field="*{bookingID}">
         <div class="inputBox">
             <input type="text" placeholder="MovieName" th:field="*{movieName}" required>
         </div>
         <div class="inputBox">
-            <input type="text" th:field="*{date}" placeholder="dd/mm/yy" required>
+            <input type="date" th:field="*{date}" placeholder="dd/mm/yy" required>
         </div>
-        <div class="inputBox">
-            <input type="text" th:field="*{time}" placeholder="Time" required>
-        </div>
+        <label class='custom-select' for="times" >
+            <select name="time" th:field="*{time}"id="times">
+                <option value="13:00-15:00">13:00-15:00</option>
+                <option value="11:00-13:00">11:00-13:00</option>
+                <option value="09:00-11:00">09:00-11:00</option>
+                <option value="15:00-17:00">15:00-17:00</option>
+                <option value="15:00-17:00">17:00-19:00</option>
+            </select>
+        </label>
         <div class="inputBox">
             <input type="text" th:field="*{numberOfPersons}" placeholder="No of Persons" required>
         </div>
         <div class="inputBox">
             <input type="text" th:field="*{seatNumber}" placeholder="SeatNumbers" required>
         </div>
+            <label class='custom-select' for="Halls" >
+                <select name="hall" th:field="*{hall}"id="halls">
+                    <option value="Civil Mall">Civil Mall</option>
+                    <option value="City Centre">City Centre</option>
+                    <option value="Kumari Hall">Kumari Hall</option>
+                    <option value="KL Tower">Kl Tower</option>
+                </select>
+            </label>
+        <label class="custom-select" for="auditorium" >
+            <select name="auditorium" th:field="*{auditorium}"id="auditorium">
+                <option value="1">Auditorium 1</option>
+                <option value="2">Auditorium 2</option>
+                <option value="3">Auditorium 3</option>
+                <option value="4">Auditorium 4</option>
+                =        </select>
+        </label>
         <div class="inputBox">
-            <input type="text" th:field="*{hall}" placeholder="hall" required>
-        </div>
-        <div class="inputBox">
-            <input type="text" th:field="*{auditorium}" placeholder="Auditorium" required>
-        </div>
-        <div class="inputBox">
-            <a href="displayBookingDetails.html"><button type="submit">Confirm Booking</button></a>
+            <a th:href="@{/bookingInfo}"><button type="submit">Confirm Booking</button></a>
         </div>
     </form>
 </div>

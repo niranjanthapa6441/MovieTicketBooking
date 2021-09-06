@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Cine Magic -Register</title>
-    <link rel="stylesheet" href="CSS/global.css">
+    <link rel="stylesheet" href="CSS/Form.css">
 </head>
 <body>
 <div class="Registration">
     <div class="form">
-        <form id="payment-form" action="#" th:action="@{/Register}" th:object="${customerAdded}" method="POST" enctype="utf8">
+        <form action="#" th:action="@{/userRegistration}" th:object="${usersAdded}" method="POST" enctype="utf8">
             <h2> Registration Form </h2>
             <div class="inputBox">
                 <input type="text" th:field="*{firstName}" placeholder="First Name" id="FirstName" required>
@@ -34,11 +34,9 @@
             <div class="inputBox">
                 <input type="password" th:field="*{confirmPassword}"placeholder="Confirm Password" id="confirmPassword" required>
             </div>
-            <label class="container">By clicking this you agrre to our <a href="">Terms & Conditions</a> and
-                <a href="">Privacy Policy</a>.
-                <input type="checkbox">
-                <span class="checkmark"></span>
-            </label>
+            <input type="checkbox" id="TermsandCondition" required>
+            <label>By clicking this you agrre to our<a href="">Terms & Conditions</a>and
+                <a href="">Privacy Policy</a>.</label>
             <button type="submit">Register</button>
             <br>
             <div class="already">
