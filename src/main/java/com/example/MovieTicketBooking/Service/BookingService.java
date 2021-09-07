@@ -16,6 +16,7 @@ public class BookingService {
     }
 
     public void saveBooking(Booking booking){
+        System.out.println(booking.getBookingID());
         bookingDetailsRepository.save(booking);
     }
     public Iterable<Booking> getALlBookings(){

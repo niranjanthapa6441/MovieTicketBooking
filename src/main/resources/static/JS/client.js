@@ -1,5 +1,5 @@
 // A reference to Stripe.js initialized with your real test publishable API key.
-var stripe = Stripe(stripePublicKey);
+var stripe = Stripe("pk_test_51JVpymFLT8kGS8MJMfmWTLg3SXim5tsyqSqVxXQWA3C7qFwb9nR0Z6w6ulSSsfaTEuCQTl6zZgMhz51OMQApWhJc0063gL0qWp");
 
 // The items the customer wants to buy
 var purchase = {
@@ -20,7 +20,6 @@ fetch("/create-payment-intent", {
   })
   .then(function(data) {
     var elements = stripe.elements();
-
     var style = {
       base: {
         color: "#32325d",

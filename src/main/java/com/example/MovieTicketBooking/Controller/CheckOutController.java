@@ -10,13 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping
 public class CheckOutController {
-    @Value("${stripe.public.key}")
-    private String stripePublicKey;
     @GetMapping("/checkout")
     public String getCheckoutForm(Model model){
         Booking booking= new Booking();
         System.out.println(booking.getAuditorium());
-        model.addAttribute("stripePublicKey",stripePublicKey);
         return "checkout";
     }
 }

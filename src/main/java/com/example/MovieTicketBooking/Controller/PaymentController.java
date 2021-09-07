@@ -22,8 +22,6 @@ import java.io.IOException;
 @RestController
 @RequestMapping
 public class PaymentController {
-    @Value("${stripe.public.key}")
-    private String stripePublicKey;
 
     @PostMapping("/create-payment-intent")
     public String test(HttpServletRequest request, HttpServletResponse response) throws StripeException {
@@ -47,7 +45,7 @@ public class PaymentController {
                     .build();
             PaymentIntent intent = PaymentIntent.create(createParams);
             // Send publishable key and PaymentIntent  details to client
-            return gson.toJson(new CreatePaymentResponse(stripePublicKey,
+            return gson.toJson(new CreatePaymentResponse("pk_test_51JVpymFLT8kGS8MJMfmWTLg3SXim5tsyqSqVxXQWA3C7qFwb9nR0Z6w6ulSSsfaTEuCQTl6zZgMhz51OMQApWhJc0063gL0qWp",
                     intent.getClientSecret()));
         } catch (JsonSyntaxException e) {
             e.printStackTrace();

@@ -24,7 +24,7 @@ public class BookngController {
     public String submitForm(@ModelAttribute("bookings") Booking bookings) {
         int ticketPrice=350;
         bookings.setTicketPrice(ticketPrice);
-        bookings.setPayment("unpaid");
+        bookings.setPayment("paid");
         int totalTicketPrice= bookings.getTicketPrice() * bookings.getNumberOfPersons();
         bookings.setTotalTicketPrice(totalTicketPrice);
         bookingService.saveBooking(bookings);

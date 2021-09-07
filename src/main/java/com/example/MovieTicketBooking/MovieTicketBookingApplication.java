@@ -14,11 +14,9 @@ import javax.annotation.PostConstruct;
 
 @SpringBootApplication
 public class MovieTicketBookingApplication {
-	@Value("${stripe.api.key}")
-	private String apiKey;
 	@PostConstruct
 	public void setup(){
-		Stripe.apiKey=apiKey;
+		Stripe.apiKey="sk_test_51JVpymFLT8kGS8MJrh6GyaYo3DSV94cKbgL4awHAUgxPLjI0KL4oBg34mER5n21IP8u3c9cCWD2PjkYE7M1Sw8Vn00QVjiQ02Y";
 	}
 	public static void main(String[] args) {
 		SpringApplication.run(MovieTicketBookingApplication.class, args);
