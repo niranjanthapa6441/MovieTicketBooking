@@ -1,5 +1,7 @@
 package com.example.MovieTicketBooking.Controller;
 
+import com.example.MovieTicketBooking.Model.Booking;
+import com.example.MovieTicketBooking.Model.BookingDTO;
 import com.example.MovieTicketBooking.Model.CreatePayment;
 import com.example.MovieTicketBooking.Model.CreatePaymentResponse;
 import com.google.gson.Gson;
@@ -37,10 +39,11 @@ public class PaymentController {
             }
             String dataBody = buffer.toString();
 
-            CreatePayment postBody = gson.fromJson(dataBody,
-                    CreatePayment.class);
+            BookingDTO postBody = gson.fromJson(dataBody,
+                    BookingDTO.class);
             PaymentIntentCreateParams createParams = new PaymentIntentCreateParams.Builder()
-                    .setCurrency("usd").setAmount(15 * 100l)
+                    .setCurrency("npr")
+                    .setAmount(350*100l)
                     .build();
             PaymentIntent intent = PaymentIntent.create(createParams);
             // Send publishable key and PaymentIntent  details to client

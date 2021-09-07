@@ -133,7 +133,12 @@ button:disabled {
   opacity: 0.5;
   cursor: default;
 }
-
+span {
+        display: inline-block;
+        width: 200px;
+        text-align: left;
+        margin-bottom: 6px;
+    }
 /* spinner/processing state, errors */
 .spinner,
 .spinner:before,

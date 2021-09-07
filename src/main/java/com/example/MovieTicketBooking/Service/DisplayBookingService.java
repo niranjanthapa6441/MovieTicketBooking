@@ -44,7 +44,6 @@ public class DisplayBookingService {
                 predicateList.add(criteriaBuilder.equal(root.get("date"), Utils.convertStrToDate(srchCo.getDate(),"yyyy-MM-dd")));
             }
             if (!srchCo.getPayment().isEmpty()) {
-                System.out.println(srchCo.getPayment());
                 predicateList.add(criteriaBuilder.equal(root.get("payment"), srchCo.getPayment()));
             }
             if (srchCo.getPayment() == null || srchCo.getPayment().isEmpty()) {

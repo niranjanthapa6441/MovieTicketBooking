@@ -4,17 +4,16 @@
     <meta charset="ISO-8859-1">
     <title>Booking Successful</title>
     <style type="text/css">
-    span {
+        span {
         display: inline-block;
         width: 200px;
         text-align: left;
     }
-</style>
+    </style>
 </head>
 <body>
 <div align="center" action="#" th:action="@{/bookingInfo}" th:object="${bookings}" method="post">
     <h2>Booking Succeeded!</h2>
-
     <span>Movie name:</span><span th:text="${bookings.movieName}"></span><br/>
     <span>Ticket Price:</span><span th:text="${bookings.ticketPrice}"></span><br/>
     <span>Total Ticket Price:</span><span th:text="${bookings.totalTicketPrice}"></span><br/>

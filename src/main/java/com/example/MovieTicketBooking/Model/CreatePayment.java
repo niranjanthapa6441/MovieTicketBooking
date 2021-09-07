@@ -7,9 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CreatePayment {
-    @SerializedName("items")
-    Object[] items;
-    public Object[] getItems() {
-        return items;
-    }
+    private Integer ticketPrice;
+    private Integer totalTicketPrice;
+
 }
