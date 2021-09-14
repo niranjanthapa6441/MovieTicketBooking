@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AddMovieRepository extends CrudRepository<AddMovies,String> {
+
 }

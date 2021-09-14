@@ -1,6 +1,7 @@
 package com.example.MovieTicketBooking.Controller;
 
 import com.example.MovieTicketBooking.Model.Booking;
+import com.example.MovieTicketBooking.Model.BookingData;
 import com.example.MovieTicketBooking.Service.BookingService;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -19,8 +20,7 @@ public class BookingInfoController {
 
     @GetMapping("/bookingInfo")
     public String saveBooking(Model model){
-        Booking bookings= new Booking();
-        model.addAttribute("bookings",bookingService.getALlBookings());
+        //model.addAttribute("bookings",bookingService.findById(bookingID));
         return "BookingInfo";
     }
 }

@@ -5,6 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Entity
 @Table(name = "Booking_Details_Paging")
@@ -13,6 +14,8 @@ public class Booking {
     @GeneratedValue(generator="system-uuid")
     @GenericGenerator(name="system-uuid", strategy = "uuid")
     private String bookingID;
+    @Column(name = "TICKETID")
+    private String ticketID;
     @Column(name = "MOVIENAME")
     private String movieName;
     @Column(name = "DATE")
@@ -34,20 +37,15 @@ public class Booking {
     private int totalTicketPrice;
     @Column(name = "PAYMENT")
     private String payment;
+
     public Booking() {
+        this.ticketID= UUID.randomUUID().toString();
+
     }
-    public Booking(String bookingID,
-                   String movieName,
-                   LocalDate date,
-                   String time,
-                   String hall,
-                   int numberOfPersons,
-                   String auditorium,
-                   String seatNumber,
-                   int ticketPrice,
-                   int totalTicketPrice,
-                   String payment) {
+
+    public Booking(String bookingID, String ticketID, String movieName, LocalDate date, String time, String hall, int numberOfPersons, String auditorium, String seatNumber, int ticketPrice, int totalTicketPrice, String payment) {
         this.bookingID = bookingID;
+        this.ticketID = ticketID;
         this.movieName = movieName;
         this.date = date;
         this.time = time;
@@ -58,6 +56,14 @@ public class Booking {
         this.ticketPrice = ticketPrice;
         this.totalTicketPrice = totalTicketPrice;
         this.payment = payment;
+    }
+
+    public String getTicketID() {
+        return ticketID;
+    }
+
+    public void setTicketID(String ticketID) {
+        this.ticketID = ticketID;
     }
 
     public int getTicketPrice() {

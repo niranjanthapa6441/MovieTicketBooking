@@ -13,6 +13,14 @@
 <body>
 <!-- Display a payment form -->
 <form id="payment-form">
+  <h2>Booking Succeeded!</h2>
+  <span th:text="'Ticket ID: ' + ${#request.getParameter('ticketID')}"></span><br/>
+  <span th:text="'Ticket Price: ' + ${#request.getParameter('ticketPrice')}"></span><br/>
+  <span th:text="'Number Of Persons: ' + ${#request.getParameter('numberOfPersons')}"></span><br/>
+  <span th:text="'Booked Date: ' + ${#request.getParameter('dateOfBooking')}"></span><br/>
+  <span th:text="'MovieName: ' + ${#request.getParameter('movieName')}"></span><br/>
+  <span th:text="'Seat Number: ' + ${#request.getParameter('seatNumber')}"></span><br/>
+  <span th:text="'Total Ticket Price: ' + ${#request.getParameter('totalTicketPrice')}"></span><br/>
   <input type="text" id="email" placeholder="Email address" />
   <div id="card-element"><!--Stripe.js injects the Card Element--></div>
   <button id="submit">

@@ -9,20 +9,19 @@
         width: 200px;
         text-align: left;
     }
+
     </style>
 </head>
 <body>
 <div align="center" action="#" th:action="@{/bookingInfo}" th:object="${bookings}" method="post">
     <h2>Booking Succeeded!</h2>
-    <span>Movie name:</span><span th:text="${bookings.movieName}"></span><br/>
-    <span>Ticket Price:</span><span th:text="${bookings.ticketPrice}"></span><br/>
-    <span>Total Ticket Price:</span><span th:text="${bookings.totalTicketPrice}"></span><br/>
-    <span>Number of Persons:</span><span th:text="${bookings.numberOfPersons}"></span><br/>
-    <span>Seat Numbers:</span><span th:text="${bookings.seatNumber}"></span><br/>
-    <span>Booking Date:</span><span th:text="${bookings.date}"></span><br/>
-    <span>Show Time:</span><span th:text="${bookings.time}"></span><br/>
-    <span>Hall:</span><span th:text="${bookings.hall}"></span><br/>
-    <span>Auditorium:</span><span th:text="${bookings.auditorium}"></span><br/>
+    <span th:text="'Ticket ID: ' + ${#request.getParameter('ticketID')}"></span><br/>
+    <span th:text="'Ticket Price: ' + ${#request.getParameter('ticketPrice')}"></span>
+    <span th:text="'Number Of Persons: ' + ${#request.getParameter('numberOfPersons')}"></span>
+    <span th:text="'Booked Date: ' + ${#request.getParameter('dateOfBooking')}"></span>
+    <span th:text="'MovieName: ' + ${#request.getParameter('movieName')}"></span>
+    <span th:text="'Seat Number: ' + ${#request.getParameter('seatNumber')}"></span>
+    <span th:text="'Total Ticket Price: ' + ${#request.getParameter('totalTicketPrice')}"></span>
     <form>
         <button><a th:href="@{/checkout}">Pay</a></button>
     </form>

@@ -8,7 +8,8 @@ import java.util.UUID;
 @Entity
 @Table(name = "movie")
 public class AddMovies {
-    @Id @GeneratedValue(generator="system-uuid")
+    @Id
+    @GeneratedValue(generator="system-uuid")
     @GenericGenerator(name="system-uuid", strategy = "uuid")
     private String movieID;
     @Column(name = "MOVIE_NAME")

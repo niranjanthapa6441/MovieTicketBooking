@@ -15,9 +15,8 @@ public class BookingService {
         this.bookingDetailsRepository = bookingDetailsRepository;
     }
 
-    public void saveBooking(Booking booking){
-        System.out.println(booking.getBookingID());
-        bookingDetailsRepository.save(booking);
+    public Booking saveBooking(Booking booking){
+        return bookingDetailsRepository.save(booking);
     }
     public Iterable<Booking> getALlBookings(){
         return bookingDetailsRepository.findAll();
@@ -25,5 +24,4 @@ public class BookingService {
     public Optional<Booking> findById(String id) {
         return bookingDetailsRepository.findById(id);
     }
-
 }
