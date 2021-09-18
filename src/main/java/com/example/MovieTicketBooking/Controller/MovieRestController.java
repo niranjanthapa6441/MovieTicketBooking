@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("restAPI/movies")
+@RequestMapping("/api/v1/movies")
 public class MovieRestController {
     private final AddMovieService addMovieService;
 

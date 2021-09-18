@@ -4,6 +4,7 @@ import com.example.MovieTicketBooking.Model.Booking;
 import com.example.MovieTicketBooking.Repository.BookingDetailsRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 

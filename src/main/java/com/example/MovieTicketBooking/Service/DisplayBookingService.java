@@ -40,8 +40,7 @@ public class DisplayBookingService {
             if (Strings.isNotBlank(srchCo.getMovieName())) {
                 predicateList.add(criteriaBuilder.like(root.get("movieName"), "%" + srchCo.getMovieName() + "%"));
             }
-            if (Strings.isNotBlank(srchCo.getDate())) {
-                predicateList.add(criteriaBuilder.equal(root.get("date"), Utils.convertStrToDate(srchCo.getDate(),"yyyy-MM-dd")));
+            if (Strings.isNotBlank(srchCo.getDate())) { predicateList.add(criteriaBuilder.equal(root.get("date"), Utils.convertStrToDate(srchCo.getDate(),"yyyy-MM-dd")));
             }
             if (!srchCo.getPayment().isEmpty()) {
                 predicateList.add(criteriaBuilder.equal(root.get("payment"), srchCo.getPayment()));

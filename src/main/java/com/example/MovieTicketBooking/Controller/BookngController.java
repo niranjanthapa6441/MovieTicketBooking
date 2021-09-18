@@ -23,16 +23,9 @@ public class BookngController {
         return "BookTickets";
     }
     @PostMapping
-    public String submitForm(@ModelAttribute("bookings") Booking bookings, RedirectAttributes redirectAttributes) {
+    public String submitForm(@ModelAttribute("bookings") Booking bookings) {
         calculate(bookings);
         Booking booking=bookingService.saveBooking(bookings);
-        redirectAttributes.addAttribute("ticketID",booking.getTicketID());
-        redirectAttributes.addAttribute("ticketPrice",booking.getTicketPrice());
-        redirectAttributes.addAttribute("movieName",booking.getMovieName());
-        redirectAttributes.addAttribute("numberOfPersons",booking.getNumberOfPersons());
-        redirectAttributes.addAttribute("totalTicketPrice",booking.getTotalTicketPrice());
-        redirectAttributes.addAttribute("dateOfBooking",booking.getDate());
-        redirectAttributes.addAttribute("seatNumber",booking.getSeatNumber());
         return "redirect:/checkout";
     }
 

@@ -1,19 +1,23 @@
 package com.example.MovieTicketBooking.Controller;
 
 import com.example.MovieTicketBooking.Model.Booking;
-import org.springframework.beans.factory.annotation.Value;
+import com.example.MovieTicketBooking.Service.BookingService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @Controller
 @RequestMapping
 public class CheckOutController {
+    @Autowired
+    private BookingService bookingService;
     @GetMapping("/checkout")
-    public String getCheckoutForm(Model model){
-        Booking booking= new Booking();
-        System.out.println(booking.getAuditorium());
+    public String getInfo(@RequestBody Booking booking){
+        String ticketID= booking.getTicketID();
+        System.out.println(ticketID);
         return "checkout";
     }
 }
